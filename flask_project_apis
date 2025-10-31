@@ -1,0 +1,196 @@
+🔹 1. Home Page
+
+Purpose: Show featured categories, brands, and products.
+
+APIs Needed:
+
+GET /categories – List all categories
+
+GET /brands – List all brands
+
+GET /products?featured=true – List featured products
+
+✅ Total APIs: 3
+
+🔹 2. Product Listing Page
+
+Purpose: Show products by category/brand/filter.
+
+APIs Needed:
+
+GET /products?category_id=X&brand_id=Y&search=Z&page=N – Filtered products
+
+GET /categories – For sidebar filters
+
+GET /brands – For sidebar filters
+
+✅ Total APIs: 3
+
+🔹 3. Product Details Page
+
+Purpose: Show single product detail, inventory, images, and reviews.
+
+APIs Needed:
+
+GET /products/:id – Product details
+
+GET /product_inventory/:product_id – Inventory info
+
+GET /product_images/:product_id – Images
+
+GET /reviews/:product_id – Product reviews
+
+POST /reviews – Submit review (optional, if logged in)
+
+✅ Total APIs: 5 (6 if user can add review)
+
+🔹 4. Cart Page
+
+Purpose: Show items in the user's cart, update/delete them.
+
+APIs Needed:
+
+GET /cart/:user_id – Get user’s cart
+
+GET /cart_items/:cart_id – Get items in cart
+
+POST /cart_items – Add to cart
+
+PUT /cart_items/:id – Update quantity
+
+DELETE /cart_items/:id – Remove item
+
+✅ Total APIs: 5
+
+🔹 5. Checkout Page
+
+Purpose: Enter address, apply coupon, payment, shipping options.
+
+APIs Needed:
+
+GET /address_book/:user_id – Fetch saved addresses
+
+POST /address_book – Add new address
+
+GET /shipping – Available shipping methods
+
+GET /payment – Available payment options
+
+POST /order – Place order
+
+POST /order_items – Add order items
+
+POST /coupon/apply – Apply coupon
+
+DELETE /cart_items/:id – Clear cart on success
+
+✅ Total APIs: 8
+
+🔹 6. Order Confirmation / Thank You Page
+
+Purpose: Show summary of placed order.
+
+APIs Needed:
+
+GET /order/:id – Order info
+
+GET /order_items/:order_id – Ordered items
+
+✅ Total APIs: 2
+
+🔹 7. Order History Page
+
+Purpose: List of user’s past orders.
+
+APIs Needed:
+
+GET /orders/:user_id – List of user orders
+
+✅ Total APIs: 1
+
+🔹 8. Order Details Page
+
+Purpose: Show full order detail (items, status, shipping, payment).
+
+APIs Needed:
+
+GET /order/:id
+
+GET /order_items/:order_id
+
+GET /shipping/:id – Shipping method info
+
+GET /payment/:id – Payment info
+
+✅ Total APIs: 4
+
+🔹 9. User Profile Page
+
+Purpose: View/edit profile, manage addresses.
+
+APIs Needed:
+
+GET /user/:id
+
+PUT /user/:id
+
+GET /address_book/:user_id
+
+POST /address_book
+
+PUT /address_book/:id
+
+DELETE /address_book/:id
+
+✅ Total APIs: 6
+
+🔹 10. Login/Register Page
+
+Purpose: Auth handling (Assuming JWT or similar).
+
+APIs Needed:
+
+POST /auth/login
+
+POST /auth/register
+
+✅ Total APIs: 2
+
+🔹 11. Admin Dashboard (if applicable)
+➤ Manage Products
+
+GET /products
+
+POST /products
+
+PUT /products/:id
+
+DELETE /products/:id
+
+✅ 4 APIs
+
+➤ Manage Brands / Categories / Coupons
+
+Each:
+
+GET /
+
+POST /
+
+PUT /:id
+
+DELETE /:id
+
+✅ 3 Tables × 4 APIs = 12 APIs
+
+➤ Manage Inventory & Images
+
+POST /product_inventory
+
+PUT /product_inventory/:id
+
+POST /product_image
+
+DELETE /product_image/:id
+
+✅ 4 APIs
